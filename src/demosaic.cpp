@@ -26,7 +26,7 @@ pixel_t demosaicInterpol(rawData_t rawWindow[5][5], uint2 bayerPattern)
         pixTmp.b = 6 * rawWindow[2][2] - 3 * (rawWindow[0][2] + rawWindow[2][0] + rawWindow[4][2] + rawWindow[2][4]) / 2 \
                    + 2 * (rawWindow[1][1] + rawWindow[1][3] + rawWindow[3][1] + rawWindow[3][3]);
         pixTmp.g = pixTmp.g / 8;
-        pixTmp.b = pixTmp.b / 8; 
+        pixTmp.b = pixTmp.b / 8;
     }
     else if (bayerPattern == 1)
     {
@@ -92,7 +92,7 @@ void demosaic(top_register top_reg, demosaic_register demosaic_reg, Stream_t& sr
                 rawWindow[4][4] = srcPixel;
                 line_write: for(i = 0; i < 4; i++) {
                     lineBuf[i][col] = rawWindow[i+1][4];
-                } 
+                }
 
                 if((row > 3) && (col > 3)){
                     uint2 bayerPattern = (((row & 1) << 1) + (col & 1))^top_reg.imgPattern;

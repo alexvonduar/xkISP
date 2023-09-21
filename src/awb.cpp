@@ -6,14 +6,14 @@ void awb(top_register top_reg, awb_register& awb_reg, stream_u12 &src, stream_u1
     uint33 r_total = 0;
     uint33 g_total = 0;
     uint33 b_total = 0;
-    
+
     uint12 r_avg = 0;
     uint12 g_avg = 0;
     uint12 b_avg = 0;
     uint12 r_q;
     uint12 b_q;
     uint26 gray = 0;
-    
+
     awb_row: for (uint13 y = 0; y < top_reg.frameHeight; y++) {
         awb_col: for (uint13 x = 0; x < top_reg.frameWidth; x++) {
             src_t = src.read();
@@ -40,7 +40,7 @@ void awb(top_register top_reg, awb_register& awb_reg, stream_u12 &src, stream_u1
             }
             dst_t = src_t;
             dst.write(dst_t);
-            #ifdef  DEBUG 
+            #ifdef DEBUG
             if ((x == ROW_TEST)&&(y == COL_TEST)) {
                  printf("\t%d\n",src_t.to_int());
             }

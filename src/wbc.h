@@ -4,7 +4,7 @@
 #include "top.h"
 
 typedef struct{
-    bool    m_nEb;  
+    bool    m_nEb;
     uint15  m_nR; //15 bits (3.12) 7.93X gain
     uint15  m_nGr; //15 bits (3.12) 7.93X gain
     uint15  m_nGb; //15 bits (3.12) 7.93X gain
